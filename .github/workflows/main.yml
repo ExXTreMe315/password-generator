@@ -17,6 +17,9 @@ jobs:
           repository: ExXTreMe315/password-generator
           path: production
           ref: main
+      - name: PWD
+        run: |
+          pwd
       - name: copy files
         run: |
           cp ./password-generator/password-generator/production/index.html /var/www/passwordGenerator

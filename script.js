@@ -180,6 +180,7 @@ copyBtn.addEventListener('click', copyToClipboard)
 
 lengthSlider.addEventListener('input', () => {
     updateLengthDisplay()
+    passwordInput.value = generatePassword()
 })
 
 // Add change listeners to all checkboxes

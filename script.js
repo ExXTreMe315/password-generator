@@ -172,11 +172,11 @@ function updateLengthDisplay() {
 }
 
 // Event Listeners
-generateBtn.addEventListener('click', () => {
+generateBtn.addEventListener('click', copyToClipboard)
+
+copyBtn.addEventListener('click', () => {
     passwordInput.value = generatePassword()
 })
-
-copyBtn.addEventListener('click', copyToClipboard)
 
 lengthSlider.addEventListener('input', () => {
     updateLengthDisplay()

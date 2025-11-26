@@ -14,18 +14,19 @@
             <input type="text" id="password" readonly>
             <button id="copy-btn" title="Copy to clipboard">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    <path d="M23 4v6h-6"></path>
+                    <path d="M1 20v-6h6"></path>
+                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36M3.34 15a9 9 0 0 0 14.82 2.44"></path>
                 </svg>
             </button>
         </div>
 
-        <button id="generate-btn">Generate Password</button>
+        <button id="generate-btn">Copy Password</button>
 
         <div class="options">
             <div class="slider-container">
-                <label for="length">Length: <span id="length-value">16</span></label>
-                <input type="range" id="length" min="4" max="128" value="16">
+                <label for="length">Length: <span id="length-value">24</span></label>
+                <input type="range" id="length" min="4" max="128" value="24">
             </div>
 
             <div class="checkbox-container">

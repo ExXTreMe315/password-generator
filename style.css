@@ -199,6 +199,7 @@ h1 {
     opacity: 0;
     transition: opacity 0.3s;
     pointer-events: none;
+    z-index: 50;
 }
 
 .toast.show {
@@ -240,8 +241,8 @@ h1 {
     display: inline-flex;
     gap: 8px;
     align-items: center;
-    color: #cfcfcf;
-    background: rgba(255, 255, 255, 0.06);
+    color: #e5e7eb;
+    background: rgba(55, 65, 81, 0.9);
     padding: 8px 12px;
     border-radius: 999px;
     backdrop-filter: blur(6px);
@@ -257,7 +258,7 @@ h1 {
     transition: transform 0.3s ease;
 }
 .footer-link:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(31, 41, 55, 0.95);
     color: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(0,0,0,0.25);

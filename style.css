@@ -6,7 +6,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -50,12 +50,12 @@ h1 {
 }
 
 .password-display input:focus {
-    border-color: #667eea;
+    border-color: #ff6b35;
 }
 
 .password-display button {
     padding: 15px;
-    background: #667eea;
+    background: #ff6b35;
     color: white;
     border: none;
     border-radius: 8px;
@@ -64,7 +64,7 @@ h1 {
 }
 
 .password-display button:hover {
-    background: #5a6fd6;
+    background: #e55a1f;
 }
 
 .password-display button:active {
@@ -76,7 +76,7 @@ h1 {
     padding: 15px;
     font-size: 1.1rem;
     font-weight: 600;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
     color: white;
     border: none;
     border-radius: 8px;
@@ -113,7 +113,7 @@ h1 {
 }
 
 .slider-container label span {
-    color: #667eea;
+    color: #ff6b35;
     font-weight: 700;
 }
 
@@ -133,7 +133,7 @@ h1 {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.1s;
@@ -147,7 +147,7 @@ h1 {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
     cursor: pointer;
     border: none;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -171,7 +171,7 @@ h1 {
 .checkbox-container input[type="checkbox"] {
     width: 20px;
     height: 20px;
-    accent-color: #667eea;
+    accent-color: #ff6b35;
     cursor: pointer;
 }
 
@@ -203,6 +203,77 @@ h1 {
 
 .toast.show {
     opacity: 1;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+}
+.footer a {
+    color: #ff6b35;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+}
+.footer a svg {
+    fill: currentColor;
+    width: 18px;
+    height: 18px;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Bottom footer style: subtle, centered, slightly transparent */
+.footer-bottom {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 18px;
+    z-index: 40;
+    font-size: 0.9rem;
+}
+.footer-link {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    color: #cfcfcf;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 8px 12px;
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.footer-link svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+.footer-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+.footer-link:hover svg {
+    transform: scale(1.1);
+}
+
+@media (max-width: 420px) {
+    .footer-bottom {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 12px;
+        padding: 7px 10px;
+        font-size: 0.85rem;
+    }
 }
 
 @media (max-width: 480px) {

@@ -19,6 +19,6 @@ jobs:
           ref: main
       - name: copy files
         run: |
-          cp ./ExXTreMe315/password-generator/production/index.html /var/www/passwordGenerator
-          cp ./ExXTreMe315/password-generator/production/script.js /var/www/passwordGenerator
-          cp ./ExXTreMe315/password-generator/production/style.css /var/www/passwordGenerator
+          cp ./password-generator/password-generator/production/index.html /var/www/passwordGenerator
+          cp ./password-generator/password-generator/production/script.js /var/www/passwordGenerator
+          cp ./password-generator/password-generator/production/style.css /var/www/passwordGenerator

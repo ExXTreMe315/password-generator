@@ -16,7 +16,12 @@ const numbersCheckbox = document.getElementById('numbers')
 const specialCheckbox = document.getElementById('special')
 
 // All checkboxes array for easy iteration
-const checkboxes = [uppercaseCheckbox, lowercaseCheckbox, numbersCheckbox, specialCheckbox]
+const checkboxes = [
+    uppercaseCheckbox,
+    lowercaseCheckbox,
+    numbersCheckbox,
+    specialCheckbox
+]
 
 /**
  * Generate a random password based on current settings
@@ -47,25 +52,34 @@ function generatePassword() {
 
     // If no options selected (shouldn't happen due to checkbox logic), use all
     if (charset === '') {
-        charset = UPPERCASE_CHARS + LOWERCASE_CHARS + NUMBER_CHARS + SPECIAL_CHARS
+        charset =
+            UPPERCASE_CHARS + LOWERCASE_CHARS + NUMBER_CHARS + SPECIAL_CHARS
     }
 
     // Generate password
     let password = ''
-    
+
     // First, add required characters to ensure at least one from each selected type
     for (const char of requiredChars) {
         password += char
     }
-    
+
     // Fill the rest with random characters from the combined charset
     for (let i = password.length; i < length; i++) {
         password += getRandomChar(charset)
     }
-    
+
     // Shuffle the password to randomize position of required characters
     password = shuffleString(password)
-    
+
+    haveIBeenPwned(password).then((count) => {
+        if (count > 0) {
+            showToast(
+                `Warning: This password has been seen ${count} times before!`
+            )
+        }
+    })
+
     return password
 }
 
@@ -87,8 +101,8 @@ function getRandomChar(str) {
 function shuffleString(str) {
     const arr = str.split('')
     for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]]
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[arr[i], arr[j]] = [arr[j], arr[i]]
     }
     return arr.join('')
 }
@@ -98,9 +112,9 @@ function shuffleString(str) {
  * Disables a checkbox if it's the only one checked
  */
 function updateCheckboxStates() {
-    const checkedCount = checkboxes.filter(cb => cb.checked).length
-    
-    checkboxes.forEach(checkbox => {
+    const checkedCount = checkboxes.filter((cb) => cb.checked).length
+
+    checkboxes.forEach((checkbox) => {
         if (checkedCount === 1 && checkbox.checked) {
             // Disable the only checked checkbox to prevent unchecking
             checkbox.disabled = true
@@ -117,7 +131,7 @@ function updateCheckboxStates() {
 async function copyToClipboard() {
     const password = passwordInput.value
     if (!password) return
-    
+
     try {
         await navigator.clipboard.writeText(password)
         showToast('Password copied to clipboard!')
@@ -147,16 +161,16 @@ function showToast(message) {
     if (existingToast) {
         existingToast.remove()
     }
-    
+
     // Create and show new toast
     const toast = document.createElement('div')
     toast.className = 'toast'
     toast.textContent = message
     document.body.appendChild(toast)
-    
+
     // Trigger animation
     setTimeout(() => toast.classList.add('show'), 10)
-    
+
     // Remove toast after delay
     setTimeout(() => {
         toast.classList.remove('show')
@@ -184,7 +198,7 @@ lengthSlider.addEventListener('input', () => {
 })
 
 // Add change listeners to all checkboxes
-checkboxes.forEach(checkbox => {
+checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', () => {
         updateCheckboxStates()
         // Regenerate password when options change

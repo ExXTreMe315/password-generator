@@ -28,6 +28,7 @@ const checkboxes = [
  * @returns {string} The generated password
  */
 function generatePassword() {
+    clearInfobox()
     const length = parseInt(lengthSlider.value)
     let charset = ''
     const requiredChars = []
@@ -76,6 +77,9 @@ function generatePassword() {
         if (count > 0) {
             showToast(
                 `Warning: This password has been seen ${count} times before!`
+            )
+            setInfoboxMessage(
+                `This Password was found in ${count} data breach${count > 1 ? 's' : ''}.`
             )
         }
     })
@@ -176,6 +180,33 @@ function showToast(message) {
         toast.classList.remove('show')
         setTimeout(() => toast.remove(), 300)
     }, 2000)
+}
+
+/**
+ * Show a infoBox message
+ * @param {string} message - The message to display
+ */
+function setInfoboxMessage(message) {
+    const infoBox = document.getElementById('info-box')
+    if (!infoBox) return
+
+    const infoItem = document.createElement('p')
+    infoItem.className = 'info-box__item'
+    infoItem.id = 'pwned-info'
+    infoItem.textContent = message
+
+    infoBox.appendChild(infoItem)
+}
+
+/**
+ * Clears the infoBox
+ */
+function clearInfobox() {
+    const infoBox = document.getElementById('info-box')
+    if (!infoBox) return
+    for (let i = infoBox.children.length - 1; i >= 0; i--) {
+        infoBox.removeChild(infoBox.children[i])
+    }
 }
 
 /**

@@ -8,13 +8,14 @@ A simple, secure password generator built with vanilla JavaScript.
 
 - **Adjustable Length**: Use the slider to set password length from 3 to 128 characters
 - **Character Options**: Toggle inclusion of:
-  - Uppercase letters (A-Z)
-  - Lowercase letters (a-z)
-  - Numbers (0-9)
-  - Special characters (!@#$%^&* etc.)
+    - Uppercase letters (A-Z)
+    - Lowercase letters (a-z)
+    - Numbers (0-9)
+    - Special characters (!@#$%^&\* etc.)
 - **Smart Checkbox Logic**: At least one character type must always be selected - the last remaining option is automatically disabled to prevent having zero options
 - **One-Click Copy**: Copy generated passwords to clipboard instantly
 - **Responsive Design**: Works on desktop and mobile devices
+- **[NEW] Have I Been Pwned Integration**: Shows a warning if the generated password has been found in known data breaches
 
 ## Usage
 
@@ -43,6 +44,10 @@ cd password-generator
 ## Security Note
 
 This password generator runs entirely in your browser. No passwords are sent to any server or stored anywhere. For maximum security, use this generator offline or host it on your own server.
+
+Have I Been Pwned integration checks passwords against a public API to inform you if your generated password has been compromised in known data breaches. However, always use caution and consider generating passwords offline for sensitive accounts.
+Have I Been Pwned API usage is subject to their terms and conditions.
+Have I Been Pwned will also not store or log your generated passwords. The Generator uses a [k-anonymity](https://en.wikipedia.org/wiki/K-anonymity) model to check passwords without revealing the full password to the API.
 
 ## License
 

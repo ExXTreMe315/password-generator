@@ -22,6 +22,4 @@ jobs:
           pwd
       - name: copy files
         run: |
-          cp ./production/index.html /var/www/passwordGenerator
-          cp ./production/script.js /var/www/passwordGenerator
-          cp ./production/style.css /var/www/passwordGenerator
+          cp -r ./production/src/* /var/www/passwordGenerator

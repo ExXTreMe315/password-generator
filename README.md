@@ -27,7 +27,8 @@ A simple, secure password generator built with vanilla JavaScript.
 
 ## Installation
 
-No installation required! Simply clone or download this repository and open `index.html` in any modern web browser.
+### Local Installation
+Simply clone or download this repository and open `index.html` in any modern web browser.
 
 ```bash
 git clone https://github.com/ExXTreMe315/password-generator.git
@@ -35,11 +36,24 @@ cd password-generator
 # Open index.html in your browser
 ```
 
-## Files
+### Docker Installation
+You can also run the password generator using Docker:
 
-- `index.html` - Main HTML structure
-- `style.css` - Styling and responsive design
-- `script.js` - Password generation logic and UI interactions
+```bash
+docker run -d -p 8080:80 ghcr.io/exxtreme315/password-generator:latest
+``` 
+
+Then open your browser and navigate to `http://localhost:8080`.
+
+### Docker Compose Installation
+Alternatively, you can use Docker Compose. Create a `docker-compose.yml` file with the following content:
+```yaml
+services:
+  password-generator:
+    image: ghcr.io/exxtreme315/password-generator:latest
+    ports:
+      - "8080:80"
+```
 
 ## Security Note
 

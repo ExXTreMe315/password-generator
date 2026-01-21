@@ -75,9 +75,6 @@ function generatePassword() {
 
     haveIBeenPwned(password).then((count) => {
         if (count > 0) {
-            showToast(
-                `Warning: This password has been seen ${count} times before!`
-            )
             setInfoboxMessage(
                 `This Password was found in ${count} data breach${count > 1 ? 's' : ''}.`
             )
